@@ -9,7 +9,7 @@ app =FastAPI()
 #    return {"message": "Hello Root!"}
 
 def read_root():
-    URL = "https://bigdata.kepco.co.kr/openapi/v1/powerUsage/industryType.do?year=2020&month=11&metroCd=11&cityCd=110&bizCd=C&apiKey=69viVTSCMlJ552B9O243czcn718eth0C5691acbA&returnType=json"
+    URL = "http://swopenAPI.seoul.go.kr/api/subway/apiKey=427a53796b6d696e37344f6451594a/xml/realtimeStationArrival/0/5/¼­¿ï"
 
     contents = requests.get(URL).text
 
