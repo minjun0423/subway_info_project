@@ -9,7 +9,7 @@ app =FastAPI()
 #    return {"message": "Hello Root!"}
 
 def read_root():
-    URL = "http://swopenAPI.seoul.go.kr/api/subway/apiKey=427a53796b6d696e37344f6451594a/xml/realtimeStationArrival/0/5/¼­¿ï"
+    URL = "http://swopenapi.seoul.go.kr/api/subway/427a53796b6d696e37344f6451594a/xml/realtimePosition/0/5/1%ED%98%B8%EC%84%A0"
 
     contents = requests.get(URL).text
 
