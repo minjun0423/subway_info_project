@@ -27,7 +27,7 @@ def home():
 @app.get("/subway/{station_name}")
 async def get_subway_info(station_name: str):
     try:
-        api_key = "YOUR_API_KEY"  # 발급받은 API 키를 여기에 입력합니다.
+        api_key = "427a53796b6d696e37344f6451594a"  # 발급받은 API 키를 여기에 입력합니다.
         url = f"http://swopenapi.seoul.go.kr/api/subway/427a53796b6d696e37344f6451594a/xml/realtimeStationArrival/0/5/{station_name}"
         
         # 서울 열린 데이터 광장 API로 요청을 보냅니다.
