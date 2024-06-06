@@ -6,7 +6,7 @@ import requests
 app = FastAPI()
 templates = Jinja2Templates(directory="app/templates")
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
