@@ -13,8 +13,3 @@ def read_root(request: Request):
 @app.get("/subway")
 def subway_info():
     return {"지하철 테스트"}
-
-@app.get("/route_map")
-def subway_info():
-    return {"맵"}
-
