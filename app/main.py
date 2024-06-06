@@ -5,6 +5,7 @@ import requests
 
 app = FastAPI()
 templates = Jinja2Templates(directory="app/templates")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 @app.get("/")
 def read_root(request: Request):
@@ -13,3 +14,7 @@ def read_root(request: Request):
 @app.get("/subway")
 def subway_info():
     return {"지하철 테스트"}
+
+@app.get("/route_map", response_class=HTMLResponse)
+def route_map(request: Request):
+    return templates.TemplateResponse("route_map.html", {"request": request})
