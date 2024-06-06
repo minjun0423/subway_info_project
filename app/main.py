@@ -1,10 +1,14 @@
-from fastapi import FastAPI #최종
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+import requests
 
 app = FastAPI()
+templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
-def read_root():
-    return {"message": "Hello, World!"}
+def read_root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/subway")
 def subway_info():
