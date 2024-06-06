@@ -1,4 +1,4 @@
-from fastapi import FastAPI #√÷¡æ
+from fastapi import FastAPI #ÏµúÏ¢Ö
 
 app = FastAPI()
 
