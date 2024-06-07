@@ -17,6 +17,10 @@ def read_root(request: Request):
 def subway_info():
     return {"지하철 테스트"}
 
+@app.get("/route_map")
+def subway_info():
+    return {"hello"}
+
 @app.get("/subway/{station}")
 def get_real_time_arrival_info(station: str):
     url = f"{BASE_URL}/{API_KEY}/json/realtimeStationArrival/0/5/{station}"
