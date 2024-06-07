@@ -1,6 +1,8 @@
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from typing import Union
+from pydantic import BaseModel
 import requests
 
 API_KEY = "427a53796b6d696e37344f6451594a"  #서울시 오픈API 키
@@ -12,6 +14,16 @@ templates = Jinja2Templates(directory="app/templates")
 @app.get("/", response_class=HTMLResponse)
 def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
+class Item(BaseModel):
+    name: str
+    description: Union[str, None] = None
+    price: float
+    tax: Union[float, None] = None
+
+@app.post("/items/")
+async def create_item(item: Item):
+    return item
 
 @app.get("/subway")
 def subway_info():
