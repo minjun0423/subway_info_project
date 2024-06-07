@@ -1,5 +1,5 @@
-from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI, HTTPException, Request, Form
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 import requests
 
@@ -16,6 +16,10 @@ def read_root(request: Request):
 @app.get("/subway")
 def subway_info():
     return {"지하철 테스트"}
+
+@app.post("/subway")
+def search_station(station: str = Form(...)):
+    return RedirectResponse(url=f"/subway/{station}")
 
 @app.get("/subway/{station}")
 def get_real_time_arrival_info(station: str):
@@ -37,5 +41,10 @@ def get_real_time_arrival_info(station: str):
         #cur_time = r.json()['datetime']
         #ordkey = arrival_info["ordkey"]
 
-        processed_data.append({"열차번호": btrainNo, "호선": subwayId, "상하행선구분": updownline, "지하철 위치": arvlMsg3, "지하철 도착까지": arvlMsg2})
+        processed_data.append({
+            "열차번호": btrainNo,
+            "호선": subwayId,
+            "상하행선구분": updownline,
+            "지하철 위치": arvlMsg3,
+            "지하철 도착까지": arvlMsg2})
     return processed_data

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seoul Subway Information</title>
+</head>
+<body>
+    <h1>Search for Subway Station</h1>
+    <form action="/subway" method="post">
+        <label for="station">Enter Station Name:</label>
+        <input type="text" id="station" name="station" required>
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if station %}
+    <h2>Arrival Information for {{ station }}</h2>
+    <ul>
+        {% for info in arrival_info %}
+        <li>
+            열차번호: {{ info.열차번호 }}, 
+            호선: {{ info.호선 }}, 
+            상하행선구분: {{ info.상하행선구분 }}, 
+            지하철 위치: {{ info.지하철 위치 }}, 
+            지하철 도착까지: {{ info.지하철 도착까지 }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
