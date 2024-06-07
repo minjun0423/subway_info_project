@@ -31,7 +31,7 @@
     </form>
     <script>
         function redirectToSubwayPage(event) {
-            event.preventDefault(); // 폼의 기본 제출 동작을 막음
+            event.preventDefault();
             const input = document.querySelector('.search-box[type="text"]');
             const query = input.value.trim();
             if (query) {
@@ -40,5 +40,16 @@
             }
         }
     </script>
+    <form action="http://127.0.0.1:8000/items/" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description"><br>
+        <label for="price">Price:</label><br>
+        <input type="number" id="price" name="price" step="0.01" required><br>
+        <label for="tax">Tax:</label><br>
+        <input type="number" id="tax" name="tax" step="0.01"><br><br>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
