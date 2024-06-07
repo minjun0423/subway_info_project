@@ -41,10 +41,14 @@
         }
     </script>
     <form action="http://3.37.58.224:8080/items/" method="post">
-        <label for="statnNm">Name:</label><br>
-        <input type="text" id="statnNm" name="statnNm" required><br>
-        <label for="subwayNm">Tax:</label><br>
-        <input type="number" id="subwayNm" name="subwayNm"><br><br>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description"><br>
+        <label for="price">Price:</label><br>
+        <input type="number" id="price" name="price" step="0.01" required><br>
+        <label for="tax">Tax:</label><br>
+        <input type="number" id="tax" name="tax" step="0.01"><br><br>
         <input type="submit" value="Submit">
     </form>
 </body>
