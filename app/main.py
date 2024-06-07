@@ -13,9 +13,9 @@ templates = Jinja2Templates(directory="app/templates")
 def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.get("/subway")
-def subway_info():
-    return {"지하철 테스트"}
+@app.get("/subway", response_class=HTMLResponse)
+def subway_info(request: Request):
+    return templates.TemplateResponse("subway.html", {"request": request})
 
 @app.post("/subway")
 def search_station(station: str = Form(...)):
